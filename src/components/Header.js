@@ -46,8 +46,9 @@ const Header = () => {
             cursor: 'pointer',
         },
         logo: {
-            width: '50px', // adjust size as needed
+            width: '80px',
             height: '50px',
+            borderRadius: '10px',
             objectFit: 'cover',
         },
         dropdownButton: {
