@@ -75,11 +75,11 @@ const Header = () => {
   return (
     <div style={styles.container}>
         <div style={styles.rightSection}>
+            <button onClick={() => navigate('/')} style={styles.logoButton}>
+                <img src={require('../assets/images/logo.jpeg')} alt="Logo" style={styles.logo} />
+            </button>
             <button onClick={toggleDropdown} style={styles.dropdownButton}>
                 <mdMoreVert size={24} color="#E2CF03" />
-            </button>
-            <button onClick={() => navigate('/')} style={styles.logoButton}>
-                <img src={require('../logo.svg')} alt="Logo" style={styles.logo} />
             </button>
         </div>
         {dropdownVisible && (
