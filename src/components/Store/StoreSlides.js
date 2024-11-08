@@ -24,18 +24,24 @@ const styles = {
   },
 };
 
-const StoreSlides = ({data}) => {    
+
+
+const StoreSlides = ({data}) => {
+  console.log(data);
   return (
     <div>
-      {data.map((item) => (
+    {data ? (
+      data.map((item) => (
         <div key={item.id} style={styles.card}>
           <img src={item.image} alt={item.title} style={styles.image} />
           <h3 style={styles.title}>{item.title}</h3>
         </div>
-      ))}
-    </div>
+      ))
+    ) : (
+      <p>No data available</p> // Handle the case where data is undefined or empty
+    )}
+  </div>
   );
 };
 
 export default StoreSlides;
-

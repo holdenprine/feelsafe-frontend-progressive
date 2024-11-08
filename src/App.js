@@ -36,13 +36,14 @@ function App() {
         id: 4, 
     }
 ];
+
+
   return (
     <>
-      <Header />
-      <CourseProgressBar data={courseData}/>
-      <Store data={storeData}/>
-      <About />
-      
+        <Header />
+        <CourseProgressBar data={courseData}/>
+        <Store />
+        <About />      
     </>
   );
 }

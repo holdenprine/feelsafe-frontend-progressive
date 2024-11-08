@@ -28,11 +28,35 @@ const styles = {
   },
 };
 
-const Store = (data) => {
+const Store = () => {
+
+  const storeData = [
+    { 
+        title: 'Product 1', 
+        image: 'https://picsum.photos/200',
+        id: 1 
+    },
+    { 
+        title: 'Product 2', 
+        image: 'https://picsum.photos/200',
+        id: 2, 
+    },
+    { 
+        title: 'Product 3', 
+        image: 'https://picsum.photos/200',
+        id: 3, 
+    },
+    { 
+        title: 'Product 4', 
+        image: 'https://picsum.photos/200',
+        id: 4, 
+    }
+];
+
   return (
     <div style={styles.courseContainer}>
       <h1 style={styles.heading}>Store</h1>
-      <StoreSlides data={data}/>
+      <StoreSlides data={storeData || []}/>
     </div>
   );
 };
