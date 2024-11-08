@@ -9,6 +9,7 @@ const styles = {
     marginBottom: '10px',
     padding: '20px',
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
   },
@@ -21,6 +22,7 @@ const styles = {
   title: {
     fontSize: '18px',
     fontWeight: 'bold',
+    marginBottom: '10px',
   },
 };
 
@@ -38,7 +40,8 @@ const StoreSlides = ({data}) => {
         </div>
       ))
     ) : (
-      <p>No data available</p> // Handle the case where data is undefined or empty
+      // Handle the case where data is undefined or empty
+      <p>No data available</p> 
     )}
   </div>
   );

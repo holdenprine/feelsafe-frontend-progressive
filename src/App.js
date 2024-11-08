@@ -1,9 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import About from './components/About';
-import Store from './components/Store';
+import Store from './components/Store/Store';
 import CourseProgressBar from './components/CourseProgress/CourseProgressBar';
+import Contact from './components/Contact';
+import SettingsHomepage from './components/Settings';
+import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -40,10 +43,18 @@ function App() {
 
   return (
     <>
+      <div>
         <Header />
         <CourseProgressBar data={courseData}/>
-        <Store />
-        <About />      
+        <Store data={storeData}/>
+        <About />
+        <Footer />
+      </div>
+
+      <Routes>
+        <Route path='/contact' element={<Contact />}/>
+        <Route path='/settings' element={<SettingsHomepage />}/>
+      </Routes>        
     </>
   );
 }
