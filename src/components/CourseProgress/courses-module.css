@@ -1,0 +1,87 @@
+.safeArea {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .scrollViewContent {
+    padding: 10px;
+    padding-bottom: 100px;
+  }
+  
+  .unitContainer {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .header {
+    text-align: left;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .description {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .video {
+    width: 640px; /* Fixed width */
+    height: 360px; /* Fixed height */
+    border-radius: 15px;
+    display: block; /* Allows margin auto to center the element */
+    margin: 40px auto 20px; /* Centers the video horizontally */
+  }
+  
+  .buttonNavContainer {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 20px; /* Adds space between buttons */
+    margin-bottom: 20px;
+  }
+  
+  .previousButton,
+  .nextButton {
+    width: 100px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #5F6D46;
+    color: yellow;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .previousButton:hover,
+  .nextButton:hover {
+    background-color: #4e5939;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+  }
+  
+  .previousButton:active,
+  .nextButton:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  @media (max-width: 768px) {
+    .video {
+      width: 480px;
+      height: 270px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .video {
+      width: 320px;
+      height: 180px;
+    }
+  }
+  
+  
+  

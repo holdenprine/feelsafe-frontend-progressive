@@ -2,7 +2,7 @@ import React from 'react';
 const styles = {
   card: {
     width: '300px',
-    height: '180px',
+    height: '140px',
     backgroundColor: '#fff',
     borderRadius: '10px',
     marginTop: '20px',
