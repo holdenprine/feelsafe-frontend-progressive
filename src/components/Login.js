@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
 
     // form submission handling
     const handleSubmit = async (e) => {
@@ -23,7 +23,7 @@ const Login = () => {
         if(response.ok) {
             const user = await response.json();
             localStorage.setItem('user', JSON.stringify(user));
-            history.push('/');
+            navigate('/');
         } else {
             alert('Invalid login Credentials');
         }
@@ -48,6 +48,12 @@ const Login = () => {
         required
       />
       <button type="submit">Login</button>
+      <a>Forgot Password?</a>
+      <a onClick={navigate('/signup')}>Don't have an account? Sign up</a>
+      <img 
+        src={require('../assets/images/logo.jpeg')}
+        alt='placeholder'
+      />
     </form>
   </div>
   )

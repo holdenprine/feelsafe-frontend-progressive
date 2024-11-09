@@ -1,5 +1,7 @@
 import React from 'react';
 import ModuleCard from './ModuleCard';
+import Header from '../Header';
+import Footer from '../Footer';
 import { useNavigate } from 'react-router-dom';
 
 const styles = {
@@ -65,6 +67,8 @@ const ModuleOverview = () => {
   const courseNames = [...new Set(feelSafeCourseData.map((item) => item.courseName))];
 
   return (
+    <>
+    <Header />
     <div style={styles.safeArea}>
       <div style={styles.scrollViewContent}>
         <div style={styles.container}>
@@ -83,6 +87,8 @@ const ModuleOverview = () => {
         </button>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

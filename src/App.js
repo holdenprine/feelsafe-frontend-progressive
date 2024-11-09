@@ -10,6 +10,9 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import ModuleOverview from './components/CourseProgress/ModuleOverview';
 import Home from './pages/Home';
+import Login from './components/Login';
+import Signup from './components/Signup';
+
 
 function App() {
 
@@ -67,6 +70,8 @@ function App() {
         <Route path='moduleoverview' element={<ModuleOverview />}/>
         <Route path='/' element={<CourseProgressBar data={FeelSafeCourseData}/>}/>
         <Route path='/coursesmodule' element={<CoursesModule />}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/signup' element={<Signup />}/>
       </Routes>
       {/* Fallback route to redirect to Home if not found -> should nav to 404 page */}
             
