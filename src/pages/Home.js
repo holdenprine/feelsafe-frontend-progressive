@@ -41,6 +41,9 @@ const Home = () => {
     }
   ];
 
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // use for protecting pages from people who arent logged in
+
   return (
     <>
         <Header />

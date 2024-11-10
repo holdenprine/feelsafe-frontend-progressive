@@ -1,12 +1,8 @@
 import './App.css';
-import Header from './components/Header';
-import About from './components/About';
-import Store from './components/Store/Store';
 import CourseProgressBar from './components/CourseProgress/CourseProgressBar';
 import Contact from './components/Contact';
 import CoursesModule from './components/CourseProgress/CoursesModule';
 import SettingsHomepage from './components/Settings';
-import Footer from './components/Footer';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import ModuleOverview from './components/CourseProgress/ModuleOverview';
 import Home from './pages/Home';

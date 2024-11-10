@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { mdMoreVert } from 'react-icons/md';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const Header = () => {
 
@@ -56,6 +56,7 @@ const Header = () => {
             border: 'none',
             cursor: 'pointer',
             marginLeft: '10px',
+            borderRadius: '10px'
         },
         dropdownMenu: {
             position: 'absolute',
@@ -80,7 +81,7 @@ const Header = () => {
                 <img src={require('../assets/images/logo.jpeg')} alt="Logo" style={styles.logo} />
             </button>
             <button onClick={toggleDropdown} style={styles.dropdownButton}>
-                <mdMoreVert size={24} color="#E2CF03" />
+                <ArrowDropDownIcon size={24} color="#E2CF03" borderRadius={'20px'}/>
             </button>
         </div>
         {dropdownVisible && (

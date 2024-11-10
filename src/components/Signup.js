@@ -1,6 +1,7 @@
 // src/components/Signup.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -9,12 +10,24 @@ const Signup = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const handleSignup = async () => {
+    try {
+        const response = await axios.post('http://localhost:5001/api/users/signup', { username, email, password });
+            if(response === 200) {
+                alert('Signup Sucessful! Click to be taken to the login!')
+                navigate('/login')
+            } 
+        } catch (error) {
+            alert('Error Signing up, please try again!')
+        }
+  };
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Basic validation
-    if (!username || !password) {
+    if (!username || !email || !password) {
       setError('All fields are required!');
       return;
     }
@@ -44,9 +57,16 @@ const Signup = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Username/Email"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+         <input
+          type="text"
+          placeholder="Email"
+          value={username}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input

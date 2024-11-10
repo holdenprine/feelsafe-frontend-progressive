@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const navigate = useNavigate();
+
+    const handleLogin = async () => {
+      try {
+        const response = await axios.post('http://localhost:5001/api/users/login', {email, password});
+        // save token to local storage
+        localStorage.setItem('token', response.data.token);
+        alert('Login successful!');
+      } catch (error) {
+        alert('Error logging in');
+      }
+    }
 
     // form submission handling
     const handleSubmit = async (e) => {
@@ -47,9 +60,9 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button type="submit">Login</button>
-      <a>Forgot Password?</a>
-      <a onClick={navigate('/signup')}>Don't have an account? Sign up</a>
+      <button onClick={handleLogin} type="submit">Login</button>
+      <p onClick={() => navigate('/')}>Forgot Password?</p>
+      <p onClick={navigate('/signup')}>Don't have an account? Sign up</p>
       <img 
         src={require('../assets/images/logo.jpeg')}
         alt='placeholder'
