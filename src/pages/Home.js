@@ -1,95 +1,58 @@
-import React from 'react';
-import ModuleCard from './ModuleCard';
-import Header from '../Header';
-import Footer from '../Footer';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import Header from '../components/Header'
+import CourseProgressBar from '../components/CourseProgress/CourseProgressBar'
+import Store from '../components/Store/Store'
+import About from '../components/About'
+import Footer from '../components/Footer'
 
-const styles = {
-  safeArea: {
-    backgroundColor: '#fff',
-    padding: '10px',
-  },
-  scrollViewContent: {
-    padding: '10px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  container: {
-    textAlign: 'center',
-    marginBottom: '20px',
-  },
-  courseName: {
-    fontSize: '24px',
-    fontFamily: 'Montserrat, sans-serif',
-    fontWeight: '700',
-    marginTop: '20px',
-    marginBottom: '4px',
-    color: '#333',
-  },
-  cardContainer: {
-    paddingBottom: '25px',
-  },
-  navButton: {
-    backgroundColor: '#5F6D46',
-    padding: '15px',
-    margin: '30px 20px',
-    borderRadius: '10px',
-    textAlign: 'center',
-    color: '#fff',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    fontFamily: 'Poppins, sans-serif',
-    cursor: 'pointer',
-    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.3)',
-    transition: 'background-color 0.2s ease, transform 0.2s ease',
-  },
-  navButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    textDecoration: 'none',
-  }
-};
 
-const feelSafeCourseData = [
+
+const Home = () => {
+
+  const FeelSafeCourseData = [
     { moduleTitle: 'Awareness', image: 'https://picsum.photos/200', videoContent: 'placeholder', moduleNumber: 1, courseName: 'Feel Safe Online', description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iure beatae perferendis blanditiis magni excepturi harum enim ipsa consequuntur placeat voluptatum quas quam, neque ab nostrum vel suscipit, culpa doloribus.', isCompleted: false },
     { moduleTitle: 'Defense', image: 'https://picsum.photos/200', videoContent: 'placeholder', moduleNumber: 2, courseName: 'Feel Safe Online', description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iure beatae perferendis blanditiis magni excepturi harum enim ipsa consequuntur placeat voluptatum quas quam, neque ab nostrum vel suscipit, culpa doloribus.', isCompleted: false },
     { moduleTitle: 'What to Do?', image: 'https://picsum.photos/200', videoContent: 'placeholder', moduleNumber: 3, courseName: 'Feel Safe Online', description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iure beatae perferendis blanditiis magni excepturi harum enim ipsa consequuntur placeat voluptatum quas quam, neque ab nostrum vel suscipit, culpa doloribus.', isCompleted: false },
     { moduleTitle: 'Training', image: 'https://picsum.photos/200', videoContent: 'placeholder', moduleNumber: 4, courseName: 'Feel Safe Online', description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iure beatae perferendis blanditiis magni excepturi harum enim ipsa consequuntur placeat voluptatum quas quam, neque ab nostrum vel suscipit, culpa doloribus.', isCompleted: false },
     { moduleTitle: 'Review', image: 'https://picsum.photos/200', videoContent: 'placeholder', moduleNumber: 5, courseName: 'Feel Safe Online', description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iure beatae perferendis blanditiis magni excepturi harum enim ipsa consequuntur placeat voluptatum quas quam, neque ab nostrum vel suscipit, culpa doloribus.', isCompleted: false },
-]
-
-const ModuleOverview = () => {
-  
+  ]
 
 
-  const navigate = useNavigate();
-  const courseNames = [...new Set(feelSafeCourseData.map((item) => item.courseName))];
+  const storeData = [
+    { 
+        title: 'Product 1', 
+        image: 'https://picsum.photos/200',
+        id: 1 
+    },
+    { 
+        title: 'Product 2', 
+        image: 'https://picsum.photos/200',
+        id: 2, 
+    },
+    { 
+        title: 'Product 3', 
+        image: 'https://picsum.photos/200',
+        id: 3, 
+    },
+    { 
+        title: 'Product 4', 
+        image: 'https://picsum.photos/200',
+        id: 4, 
+    }
+  ];
+
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // use for protecting pages from people who arent logged in
 
   return (
     <>
-    <Header />
-    <div style={styles.safeArea}>
-      <div style={styles.scrollViewContent}>
-        <div style={styles.container}>
-          {courseNames.map((name, index) => (
-            <h2 key={index} style={styles.courseName}>{name}</h2>
-          ))}
-        </div>
-        <div style={styles.cardContainer}>
-          <ModuleCard data={feelSafeCourseData}/>
-        </div>
-        <button
-          style={styles.navButton}
-          onClick={() => navigate('/')}
-        >
-          <span style={styles.navButtonText}>Back To Home</span>
-        </button>
-      </div>
-    </div>
-    <Footer />
+        <Header />
+        <CourseProgressBar data={FeelSafeCourseData}/>
+        <Store data={storeData}/>
+        <About />
+        <Footer />
     </>
-  );
-};
+  )
+}
 
-export default ModuleOverview;
+export default Home

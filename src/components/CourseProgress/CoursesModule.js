@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './courses-module.css';
+import Header from '../Header';
+import Footer from '../Footer';
 
 const CourseModule = () => {
 
@@ -56,6 +58,8 @@ const CourseModule = () => {
   const currentCourse = feelSafeData[randIndex];
 
   return (
+    <>
+    <Header />
     <div className="safeArea">
       <div className="scrollViewContent">
         <div className="unitContainer">
@@ -76,6 +80,8 @@ const CourseModule = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
