@@ -8,9 +8,11 @@ import ModuleOverview from './components/CourseProgress/ModuleOverview';
 import Home from './pages/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
-
+import {useAuth} from './authContext';
 
 function App() {
+
+ 
 
   // mockData stored here for easy access across the app
   const courseData = [
