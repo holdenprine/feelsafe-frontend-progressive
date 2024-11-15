@@ -4,6 +4,7 @@ import CourseProgressBar from '../components/CourseProgress/CourseProgressBar'
 import Store from '../components/Store/Store'
 import About from '../components/About'
 import Footer from '../components/Footer'
+import EarnBadgePage from '../components/EarnBadgePage';
 
 
 
@@ -47,6 +48,7 @@ const Home = () => {
   return (
     <>
         <Header />
+        
         <CourseProgressBar data={FeelSafeCourseData}/>
         <Store data={storeData}/>
         <About />
