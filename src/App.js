@@ -8,9 +8,12 @@ import ModuleOverview from './components/CourseProgress/ModuleOverview';
 import Home from './pages/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
-
+import EarnBadgePage from './components/EarnBadgePage';
+import QuizPage from './components/QuizPage';
 
 function App() {
+
+ 
 
   // mockData stored here for easy access across the app
   const courseData = [
@@ -68,6 +71,8 @@ function App() {
         <Route path='/coursesmodule' element={<CoursesModule />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
+        <Route path='/earnbadge' element={<EarnBadgePage />}/>
+        <Route path='/quiz' element={<QuizPage />}/>
       </Routes>
       {/* Fallback route to redirect to Home if not found -> should nav to 404 page */}
             

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const Footer = () => {
   return (
+    <>
+    <Navbar />
     <footer style={styles.footer}>
       <div style={styles.footerContent}>
         <div style={styles.links}>
@@ -21,6 +24,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 
