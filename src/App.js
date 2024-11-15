@@ -8,7 +8,8 @@ import ModuleOverview from './components/CourseProgress/ModuleOverview';
 import Home from './pages/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import {useAuth} from './authContext';
+// import ChecklistItem from './components/ChecklistItem';
+// import {useAuth} from './authContext';
 
 function App() {
 
