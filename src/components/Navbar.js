@@ -5,6 +5,7 @@ import { FaBarsProgress } from 'react-icons/fa6';
 import { FaTshirt } from 'react-icons/fa';
 import { IoSettingsSharp } from 'react-icons/io5';
 
+
 const Navbar = () => {
   const navigate = useNavigate();
   const styles = {
