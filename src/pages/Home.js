@@ -8,6 +8,7 @@ import EarnBadgePage from '../components/EarnBadgePage';
 import ProgressPathPage from '../components/ProgressPathPage'
 import DailyContent from '../components/DailyContent';
 import Navbar from '../components/Navbar'
+import DailyLearningPage from '../components/DailyLearningPage'
 
 
 
@@ -54,8 +55,7 @@ const Home = () => {
         {/* <ProgressPathPage />
         <CourseProgressBar data={FeelSafeCourseData}/> */}
         <DailyContent />
-        <Store data={storeData}/>
-        <About />
+        <DailyLearningPage />
         <Navbar />
     </>
   )
