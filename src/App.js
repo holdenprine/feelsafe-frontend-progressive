@@ -10,6 +10,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import EarnBadgePage from './components/EarnBadgePage';
 import QuizPage from './components/QuizPage';
+import ProgressPathPage from './components/ProgressPathPage';
 
 function App() {
 
@@ -73,6 +74,7 @@ function App() {
         <Route path='/signup' element={<Signup />}/>
         <Route path='/earnbadge' element={<EarnBadgePage />}/>
         <Route path='/quiz' element={<QuizPage />}/>
+        <Route path='/progress' element={<ProgressPathPage />}/>
       </Routes>
       {/* Fallback route to redirect to Home if not found -> should nav to 404 page */}
             

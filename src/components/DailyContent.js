@@ -1,79 +1,40 @@
-import React, { useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useState, useEffect} from "react";
+import mockCourseDailyData from "./mockCourseDailyData.js";
 
-const DailyContent = ({ isLoggedIn, fetchContent}) => {
-
+const DailyContent = ({ isLoggedIn /*, fetchContent */ }) => {
     const [content, setContent] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchUserCourses = async () => {
-            try {
-                const response = await axios.get('http://localhost:5001/api/user-courses');
-                setContent(response.data);
-            } catch (error) {
-                console.error('Error fetching user courses:', error);
-                setError('Failed to fetch user courses')
-            } finally {
-                setLoading(false);
+        setTimeout(() => {
+            const today = new Date().toISOString().split('T')[0];
+            const todaysContent = mockCourseDailyData.dailyContent.find(
+                (item) => item.date === today
+            );
+
+            if (todaysContent) {
+                setContent(todaysContent.content);
+            } else {
+                setContent("No content available for today.");
             }
-        };
-
-        fetchUserCourses();
-
+            setLoading(false);
+        }, 500); // Simulated delay
     }, []);
 
-    useEffect(() => {
-        // checks if new content should be loaded
-        const checkAndLoadContent = async () => {
-            if(!isLoggedIn) {
-                setContent('Please log in to access daily content.');
-                setLoading(false);
-                return;
-            }
+    if (loading) return <div>Loading...</div>;
 
-            // formats date: "YYYY-MM-DD"
-            const today = new Date().toISOString().split('T')[0];
-            const lastAccessDate = localStorage.getItem('lastAccessedDate');
-            
-            if(lastAccessDate !== today) {
-                try {
-                    const newContent = await fetchContent();
-                    setContent(newContent);
-                    localStorage.setItem('lastAccessedDate', today);
-                    localStorage.setItem('dailyContent', newContent);
-                } catch (error) {
-                    setContent('Failed to load content. Please try again later.');
-                    console.error('Error fetching content:', error);
-                    
-                }
-            } else {
-                // Load content from localStorage if already accessed today
-                setContent(localStorage.getItem('dailyContent'));
-            }
+    return (
+        <div>
+            {content ? (
+                <div>
+                    <h2>Today's Content</h2>
+                    <p>{content}</p>
+                </div>
+            ) : (
+                <p>No content available for today.</p>
+            )}
+        </div>
+    );
+};
 
-            setLoading(false);
-        };
-
-        checkAndLoadContent();
-    }, [isLoggedIn, fetchContent]);
-
-    if(loading) return <div>Loading...</div>
-    if(error) return <div>{error}</div>
-
-  return (
-    <div>
-    {content ? (
-      <div>
-        <h2>Today's Content</h2>
-        <p>{content}</p>
-      </div>
-    ) : (
-      <p>No content available for today.</p>
-    )}
-  </div>
-  )
-}
-
-export default DailyContent
+export default DailyContent;

@@ -5,6 +5,10 @@ import Store from '../components/Store/Store'
 import About from '../components/About'
 import Footer from '../components/Footer'
 import EarnBadgePage from '../components/EarnBadgePage';
+import ProgressPathPage from '../components/ProgressPathPage'
+import DailyContent from '../components/DailyContent';
+import Navbar from '../components/Navbar'
+import DailyLearningPage from '../components/DailyLearningPage'
 
 
 
@@ -48,11 +52,11 @@ const Home = () => {
   return (
     <>
         <Header />
-        
-        <CourseProgressBar data={FeelSafeCourseData}/>
-        <Store data={storeData}/>
-        <About />
-        <Footer />
+        {/* <ProgressPathPage />
+        <CourseProgressBar data={FeelSafeCourseData}/> */}
+        <DailyContent />
+        <DailyLearningPage />
+        <Navbar />
     </>
   )
 }
